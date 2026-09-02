@@ -2,4 +2,5 @@ Hiden
 Include/
 Lib/
 Scripts/
-pyvenv.cfg/
+pyvenv.cfg
+share/

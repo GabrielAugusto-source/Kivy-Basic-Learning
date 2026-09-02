@@ -1,4 +1,5 @@
-/include
-/Lib
-/Scripts
-/pyvenv.cfg
+Hiden
+include/
+Lib/
+Scripts/
+pyvenv.cfg/

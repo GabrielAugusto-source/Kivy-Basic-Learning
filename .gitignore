@@ -10,3 +10,6 @@ users.txt
 __pycache__/
 .kivy/
 Scripts/
+Lib/
+share/
+pyvenv.cfg

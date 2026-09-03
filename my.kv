@@ -1,6 +1,6 @@
 #:import utils kivy.utils
 
-# Definição de cores globais (Paleta Dark/Modern)
+
 #:set FundoEscuro utils.get_color_from_hex('#121214')
 #:set FundoCard utils.get_color_from_hex('#202024')
 #:set TextoClaro utils.get_color_from_hex('#E1E1E6')
@@ -8,7 +8,7 @@
 #:set RoxoPrincipal utils.get_color_from_hex('#8257E5')
 #:set RoxoHover utils.get_color_from_hex('#9466FF')
 
-# Estilo global para as Caixas de Texto (Inputs)
+
 <TextInput>:
     multiline: False
     background_normal: ''
@@ -25,7 +25,7 @@
             width: 1.2
             rounded_rectangle: (self.x, self.y, self.width, self.height, 6)
 
-# Estilo global para os Botões Principais
+
 <Button>:
     background_normal: ''
     background_down: ''
@@ -41,7 +41,7 @@
             pos: self.pos
             radius: [6]
 
-# Estilo global para os Links/Botões Secundários
+
 <FlatButton@ButtonBehavior+Label>:
     font_size: '14sp'
     color: RoxoPrincipal
@@ -215,7 +215,7 @@
             size_hint_y: None
             height: '40dp'
 
-        # Painel central com as informações estilo "Card"
+        
         BoxLayout:
             orientation: 'vertical'
             padding: '20dp'

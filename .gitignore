@@ -9,3 +9,4 @@ _internal/
 users.txt
 __pycache__/
 .kivy/
+Scripts/

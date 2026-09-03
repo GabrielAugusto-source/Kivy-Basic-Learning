@@ -50,3 +50,5 @@ Agora, basta iniciar o arquivo principal:
 ```bash
 python main.py
 ```
+### Imagem Main
+<img width="1918" height="1022" alt="MyMain" src="https://github.com/user-attachments/assets/3f807446-0528-463b-9a8a-dfa72c0f3c63" />

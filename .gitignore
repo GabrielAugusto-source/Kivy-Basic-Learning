@@ -13,3 +13,6 @@ Scripts/
 Lib/
 share/
 pyvenv.cfg
+share/
+images/
+Lib/site-packages/

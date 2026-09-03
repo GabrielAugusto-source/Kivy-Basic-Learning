@@ -1,4 +1,4 @@
-# Sistema de Login e Cadastro Moderno com Kivy 🚀
+# Sistema de Login e Cadastro com Kivy 🚀
 
 Este é um projeto desenvolvido em Python utilizando o framework **Kivy**, focado na criação de uma interface de usuário (UI) moderna, limpa e responsiva para sistemas de autenticação (Login, Cadastro de Contas e Painel do Usuário).
 

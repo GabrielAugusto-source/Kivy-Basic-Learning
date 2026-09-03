@@ -1,0 +1,267 @@
+#:import utils kivy.utils
+
+# Definição de cores globais (Paleta Dark/Modern)
+#:set FundoEscuro utils.get_color_from_hex('#121214')
+#:set FundoCard utils.get_color_from_hex('#202024')
+#:set TextoClaro utils.get_color_from_hex('#E1E1E6')
+#:set TextoEscuro utils.get_color_from_hex('#7C7C8A')
+#:set RoxoPrincipal utils.get_color_from_hex('#8257E5')
+#:set RoxoHover utils.get_color_from_hex('#9466FF')
+
+# Estilo global para as Caixas de Texto (Inputs)
+<TextInput>:
+    multiline: False
+    background_normal: ''
+    background_active: ''
+    background_color: FundoCard
+    foreground_color: TextoClaro
+    cursor_color: RoxoPrincipal
+    font_size: '16sp'
+    padding: ['12dp', '12dp', '12dp', '12dp']
+    canvas.before:
+        Color:
+            rgba: RoxoPrincipal if self.focus else FundoCard
+        Line:
+            width: 1.2
+            rounded_rectangle: (self.x, self.y, self.width, self.height, 6)
+
+# Estilo global para os Botões Principais
+<Button>:
+    background_normal: ''
+    background_down: ''
+    background_color: RoxoPrincipal
+    foreground_color: TextoClaro
+    font_size: '16sp'
+    bold: True
+    canvas.before:
+        Color:
+            rgba: self.background_color
+        RoundedRectangle:
+            size: self.size
+            pos: self.pos
+            radius: [6]
+
+# Estilo global para os Links/Botões Secundários
+<FlatButton@ButtonBehavior+Label>:
+    font_size: '14sp'
+    color: RoxoPrincipal
+    bold: True
+
+
+<CreateAccountWindow>:
+    namee: namee
+    email: email
+    password: passw
+
+    canvas.before:
+        Color:
+            rgba: FundoEscuro
+        Rectangle:
+            size: self.size
+            pos: self.pos
+
+    BoxLayout:
+        orientation: 'vertical'
+        padding: ['32dp', '48dp', '32dp', '32dp']
+        spacing: '20dp'
+
+        Label:
+            text: "Criar Conta"
+            font_size: '28sp'
+            bold: True
+            color: TextoClaro
+            size_hint_y: None
+            height: '40dp'
+            halign: 'center'
+
+        Label:
+            text: "Preencha os campos abaixo para começar"
+            font_size: '14sp'
+            color: TextoEscuro
+            size_hint_y: None
+            height: '20dp'
+            halign: 'center'
+
+        BoxLayout:
+            orientation: 'vertical'
+            spacing: '8dp'
+            size_hint_y: None
+            height: '240dp'
+
+            TextInput:
+                id: namee
+                hint_text: "Nome Completo"
+                hint_text_color: TextoEscuro
+
+            TextInput:
+                id: email
+                hint_text: "E-mail"
+                hint_text_color: TextoEscuro
+
+            TextInput:
+                id: passw
+                hint_text: "Senha"
+                hint_text_color: TextoEscuro
+                password: True
+
+        Button:
+            text: "Cadastrar"
+            size_hint_y: None
+            height: '50dp'
+            on_release:
+                root.manager.transition.direction = "left"
+                root.submit()
+
+        Widget: # Espaçador elástico
+
+        FlatButton:
+            text: "Já tem uma conta? Faça Login"
+            size_hint_y: None
+            height: '40dp'
+            on_release:
+                root.manager.transition.direction = "right"
+                root.login()
+
+
+<LoginWindow>:
+    email: email
+    password: password
+
+    canvas.before:
+        Color:
+            rgba: FundoEscuro
+        Rectangle:
+            size: self.size
+            pos: self.pos
+
+    BoxLayout:
+        orientation: 'vertical'
+        padding: ['32dp', '64dp', '32dp', '32dp']
+        spacing: '20dp'
+
+        Label:
+            text: "Bem-vindo de volta"
+            font_size: '28sp'
+            bold: True
+            color: TextoClaro
+            size_hint_y: None
+            height: '40dp'
+
+        Label:
+            text: "Faça login para acessar sua conta"
+            font_size: '14sp'
+            color: TextoEscuro
+            size_hint_y: None
+            height: '20dp'
+
+        BoxLayout:
+            orientation: 'vertical'
+            spacing: '12dp'
+            size_hint_y: None
+            height: '140dp'
+
+            TextInput:
+                id: email
+                hint_text: "Seu e-mail"
+                hint_text_color: TextoEscuro
+
+            TextInput:
+                id: password
+                hint_text: "Sua senha"
+                hint_text_color: TextoEscuro
+                password: True
+
+        Button:
+            text: "Entrar"
+            size_hint_y: None
+            height: '50dp'
+            on_release:
+                root.manager.transition.direction = "up"
+                root.loginBtn()
+
+        Widget:
+
+        FlatButton:
+            text: "Não tem uma conta? Cadastre-se"
+            size_hint_y: None
+            height: '40dp'
+            on_release:
+                root.manager.transition.direction = "left"
+                root.createBtn()
+
+
+<MainWindow>:
+    n: n
+    email: email
+    created: created
+
+    canvas.before:
+        Color:
+            rgba: FundoEscuro
+        Rectangle:
+            size: self.size
+            pos: self.pos
+
+    BoxLayout:
+        orientation: 'vertical'
+        padding: ['32dp', '48dp', '32dp', '32dp']
+        spacing: '24dp'
+
+        Label:
+            text: "Minha Conta"
+            font_size: '28sp'
+            bold: True
+            color: TextoClaro
+            size_hint_y: None
+            height: '40dp'
+
+        # Painel central com as informações estilo "Card"
+        BoxLayout:
+            orientation: 'vertical'
+            padding: '20dp'
+            spacing: '16dp'
+            canvas.before:
+                Color:
+                    rgba: FundoCard
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [8]
+
+            Label:
+                id: n
+                text: "Nome: ---"
+                font_size: '16sp'
+                color: TextoClaro
+                text_size: self.size
+                halign: 'left'
+                valign: 'middle'
+
+            Label:
+                id: email
+                text: "E-mail: ---"
+                font_size: '16sp'
+                color: TextoClaro
+                text_size: self.size
+                halign: 'left'
+                valign: 'middle'
+
+            Label:
+                id: created
+                text: "Criado em: ---"
+                font_size: '16sp'
+                color: TextoEscuro
+                text_size: self.size
+                halign: 'left'
+                valign: 'middle'
+
+        Widget:
+
+        Button:
+            text: "Sair da Conta"
+            background_color: utils.get_color_from_hex('#E23E44') # Vermelho moderno
+            size_hint_y: None
+            height: '50dp'
+            on_release:
+                root.logOut()
+                root.manager.transition.direction = "down"

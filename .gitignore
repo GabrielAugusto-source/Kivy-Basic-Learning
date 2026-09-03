@@ -1,6 +1,11 @@
-Hiden
-Include/
-Lib/
-Scripts/
-pyvenv.cfg
-share/
+venv/
+.venv/
+env/
+dist/
+build/
+*.spec
+_internal/
+*.exe
+users.txt
+__pycache__/
+.kivy/

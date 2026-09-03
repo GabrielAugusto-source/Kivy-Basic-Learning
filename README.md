@@ -25,8 +25,8 @@ O projeto demonstra a separação prática entre a lógica de programação (em 
 ### 1. Clonar o repositório
 Abra o seu terminal (PowerShell ou Bash) e clone o projeto para a sua máquina:
 ```bash
-git clone https://github.com
-cd NOME_DO_SEU_REPOSITORIO
+git clone https://
+cd REPOSITORIO
 ```
 
 ### 2. Criar e Ativar o Ambiente Virtual
